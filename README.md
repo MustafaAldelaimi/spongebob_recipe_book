@@ -1,7 +1,8 @@
 # SpongebobRecipeBook
 
-To start your Phoenix server:
+
   <details>
+  <summary>To start your Phoenix server:</summary>
   * Run `mix setup` to install and setup dependencies
   * Start Phoenix endpoint with `mix phx.server` or inside IEx with `iex -S mix phx.server`
   </details>
