@@ -1,0 +1,37 @@
+<form id ="sign_up-form" action="/users/create" method="post">
+  <label for="username">Username:</label>
+  <input type="text" id="username" name="username" required>
+  <br>
+  <label for="password">Password:</label>
+  <input type="password" id="password" name="password" required>
+  <br>
+  <input type="submit" value="Sign Up">
+</form>
+<br>
+<button onclick="location.href='/sign_in'">Sign in</button>
+
+<script>
+  document.getElementById('sign_up-form').addEventListener('submit', function(event) {
+    event.preventDefault();
+
+    var username = document.getElementById('username').value;
+    var password = document.getElementById('password').value;
+
+    var xhr = new XMLHttpRequest();
+    xhr.open('POST', '/users/create');
+    xhr.setRequestHeader('Content-Type', 'application/json');
+    xhr.send(JSON.stringify({
+      user: {
+        username: username,
+        hashed_password: password
+      }
+    }));
+
+    xhr.addEventListener('load', function() {
+    if (this.status === 200) {
+        window.location.href = '/recipes';
+    }
+});
+  });
+
+</script>
